@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "TankAimingComponent.h"
 #include "Tank.generated.h"
 
 UCLASS()
@@ -23,6 +24,8 @@ protected:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 	// Called to bind functionality to input
