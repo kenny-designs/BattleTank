@@ -7,7 +7,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.generated.h"
 
-// Foward Declaration
+// Forward Declaration
 class UTankBarrel;
 
 // Hold's barrel's properties and Elevate method
