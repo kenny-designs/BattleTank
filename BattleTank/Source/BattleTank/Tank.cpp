@@ -12,6 +12,14 @@ ATank::ATank()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
+
+	UE_LOG(LogTemp, Warning, TEXT("Donkey: Tank %s has been constructed via C++"), *GetName());
+}
+
+void ATank::BeginPlay()
+{
+	Super::BeginPlay(); // Needed for BP Begin Play to run!
+	UE_LOG(LogTemp, Warning, TEXT("Donkey: Tank %s invoked BeginPlay C++"), *GetName());
 }
 
 void ATank::AimAt(FVector HitLocation)
@@ -38,4 +46,3 @@ void ATank::Fire()
 		LastFireTime = FPlatformTime::Seconds();
 	}
 }
-
