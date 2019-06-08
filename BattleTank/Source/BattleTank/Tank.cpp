@@ -31,7 +31,6 @@ void ATank::AimAt(FVector HitLocation)
 void ATank::Fire()
 {
 	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	//auto Barrel = TankAimingComponent->GetBarrel();
 	UTankBarrel* Barrel = nullptr;
 
 	if (Barrel && isReloaded) {

@@ -32,11 +32,9 @@ public:
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
-	UTankBarrel* GetBarrel();
-
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringState = EFiringState::Reloading;
+	EFiringState FiringState = EFiringState::Locked;
 
 private:
 	// Sets default values for this component's properties
