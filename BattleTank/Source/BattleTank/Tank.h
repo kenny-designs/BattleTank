@@ -47,4 +47,6 @@ private:
 	float ReloadTimeInSeconds = 3;
 
 	double LastFireTime = 0;
+
+	UTankBarrel* Barrel = nullptr;
 };
