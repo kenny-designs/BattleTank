@@ -61,6 +61,7 @@ void UTankAimingComponent::Fire()
 void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	if (!ensure(Barrel && Turret)) { return; }
+	UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
@@ -94,7 +95,16 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 
 	// Move the barrel the right amount this frame
 	Barrel->Elevate(DeltaRotator.Pitch);
-	Turret->Rotate(DeltaRotator.Yaw);
+
+	// Always yaw the shortest way
+	if (FMath::Abs(DeltaRotator.Yaw) < 180.0f)
+	{
+		Turret->Rotate(DeltaRotator.Yaw);
+	}
+	else
+	{
+		Turret->Rotate(-DeltaRotator.Yaw);
+	}
 
 	// Given a max elevation speed, and the frame time
 }
