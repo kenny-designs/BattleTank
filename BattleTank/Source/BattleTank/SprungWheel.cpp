@@ -27,7 +27,7 @@ void ASprungWheel::BeginPlay()
 	
 	if (GetAttachParentActor())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Not null sprung wheel"));
+		UE_LOG(LogTemp, Warning, TEXT("Not null: %s"), *GetAttachParentActor()->GetName());
 	}
 	else
 	{
